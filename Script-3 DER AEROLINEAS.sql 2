@@ -1,0 +1,72 @@
+
+DROP TABLE IF EXISTS checkin CASCADE;
+DROP TABLE IF EXISTS vuelo_pasajero CASCADE;
+DROP TABLE IF EXISTS asiento CASCADE;
+DROP TABLE IF EXISTS pasajero CASCADE;
+DROP TABLE IF EXISTS vuelo CASCADE;
+DROP TABLE IF EXISTS aeropuerto CASCADE;
+DROP TABLE IF EXISTS usuario CASCADE;
+
+
+
+CREATE TABLE usuario (
+    usuario_id  INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    contrasena  VARCHAR(100),
+    username VARCHAR(50),
+    perfil  VARCHAR(50)
+);
+
+
+CREATE TABLE aeropuerto (
+    aeropuerto_id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    nombre VARCHAR(50),
+    origen VARCHAR(50),
+    destino VARCHAR(50)
+);
+
+
+CREATE TABLE vuelo (
+    vuelo_id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    aeropuerto_id INT NOT NULL,
+    numero_vuelo  VARCHAR(50),
+    fecha DATE,
+    FOREIGN KEY (aeropuerto_id) REFERENCES aeropuerto(aeropuerto_id)
+);
+
+
+CREATE TABLE pasajero (
+    pasajero_id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    usuario_id  INT,
+    nombre VARCHAR(50),
+    apellido VARCHAR(50),
+    documento VARCHAR(50),
+    email VARCHAR(100),
+    FOREIGN KEY (usuario_id) REFERENCES usuario(usuario_id)
+);
+
+
+CREATE TABLE asiento (
+    asiento_id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    vuelo_id INT NOT NULL,
+    fila INT,
+    columna CHAR(1),
+    FOREIGN KEY (vuelo_id) REFERENCES vuelo(vuelo_id)
+);
+
+
+CREATE TABLE vuelo_pasajero (
+    vuelo_pasajero_id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    vuelo_id INT NOT NULL,
+    pasajero_id INT NOT NULL,
+    FOREIGN KEY (vuelo_id)    REFERENCES vuelo(vuelo_id),
+    FOREIGN KEY (pasajero_id) REFERENCES pasajero(pasajero_id)
+);
+
+
+CREATE TABLE checkin (
+    checkin_id  INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    vuelo_pasajero_id INT NOT NULL,
+    fecha  DATE,
+    FOREIGN KEY (vuelo_pasajero_id) REFERENCES vuelo_pasajero(vuelo_pasajero_id)
+);
+
