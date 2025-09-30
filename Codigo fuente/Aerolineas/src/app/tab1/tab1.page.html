@@ -1,0 +1,32 @@
+<ion-content fullscreen class="background">
+  <div class="wrap">
+    <div class="marca">{{ aerolinea }}</div>
+    <h1 class="codigo-vuelo">{{ codigodevuelo }}</h1>
+    <div class="subtitulo">Estado vuelo</div>
+
+    <ion-card class="panel">
+      <ion-card-content>
+        <div class="status">{{ status }}</div>
+
+        <div class="division">
+          <div class="from">
+            <div class="salida">Desde</div>
+            <div class="salidaor">{{ codigoorigen }}</div>
+          </div>
+
+          <div class="tiempos">
+            <div class="salida">Salida programada</div>
+            <div class="tiempo">{{ programado }}</div>
+
+            <div class="salida mt">Salida estimada</div>
+            <div class="tiempo">{{ estimado }}</div>
+          </div>
+        </div>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-button expand="block" size="large" class="boton" shape="round">
+      Ver tarjeta de embarque
+    </ion-button>
+  </div>
+</ion-content>

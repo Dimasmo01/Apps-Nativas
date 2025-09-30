@@ -1,0 +1,100 @@
+.background {
+  --background: #104b8a; 
+  color: #fff;
+}
+
+.wrap{
+  max-width: 520px;            
+  margin: 0 auto;
+  padding: 36px 20px 56px;
+  text-align: center;
+}
+
+.marca{ 
+  font-family: sans-serif;
+  color: #fff;
+  font-size: 27px;
+  font-weight:500; 
+  letter-spacing:1px; 
+  margin-bottom:8px; 
+}
+.codigo-vuelo{
+ 
+  color: #fff;
+  font-size:50px;
+  font-weight:550;
+  line-height:1.2;
+  margin:6px 0; 
+}
+.subtitulo{ 
+    color: #fff;
+    font-size:26px;
+    margin-bottom:22px; }
+
+.panel{
+  background: rgba(117, 110, 195, 0.267);   
+  border-radius: 26px;
+  color:#fff;
+  margin-top:18px;
+  ion-card-content{ padding: 26px 22px 20px; }
+}
+
+
+.status{
+  font-size:40px; 
+  font-weight:530;
+  margin-bottom: 14px;
+ }
+
+
+.division{
+  display:grid;
+  grid-template-columns: 1fr 1.25fr;
+  gap:18px;
+  align-items:start;
+  margin-top:10px;
+  padding-top:14px;
+  border-top:1.5px solid rgba(255,255,255,.35);
+  text-align: left;
+}
+
+
+.from{
+  border-right:1.5px solid rgba(255,255,255,.30);
+  padding-right:18px;
+}
+
+
+.salida{
+  font-size:20px;
+ }
+.mt{
+ margin-top:12px;
+ }
+
+.salidaor{          
+  font-size: 45px;
+  font-weight:530;
+  letter-spacing:2px;
+  line-height:0.8;
+  margin-top:8px;
+}
+
+.tiempos .tiempo{   
+  font-size:45px;
+  font-weight:530;
+  line-height:1.02;
+  margin:2px 0 6px;
+}
+
+
+.boton{
+  margin:24px auto 0;
+  width:100%;
+  max-width: 520px;
+  border-radius: 24px;
+  --background: rgba(117, 110, 195, 0.267);
+  --color:#fff;
+  font-size:18px;   
+  padding:14px 0;
+}
