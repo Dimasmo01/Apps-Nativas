@@ -1,8 +1,7 @@
 import { Routes } from '@angular/router';
+import { Tab1Page } from './tab1/tab1.page';
 
 export const routes: Routes = [
-  {
-    path: '',
-    loadChildren: () => import('./tabs/tabs.routes').then((m) => m.routes),
-  },
+  { path: '', component: Tab1Page },       // ruta raíz
+  { path: '**', redirectTo: '' }
 ];

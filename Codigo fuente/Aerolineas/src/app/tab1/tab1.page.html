@@ -1,32 +1,48 @@
-<ion-content fullscreen class="background">
-  <div class="wrap">
-    <div class="marca">{{ aerolinea }}</div>
-    <h1 class="codigo-vuelo">{{ codigodevuelo }}</h1>
-    <div class="subtitulo">Estado vuelo</div>
+<ion-content class="screen" fullscreen>
+  <div class="page">
+    <div class="brand">Aerolíneas ReTime</div>
+    <h1 class="welcome">¡Bienvenido, Vos!</h1>
 
-    <ion-card class="panel">
-      <ion-card-content>
-        <div class="status">{{ status }}</div>
+    <div class="search-card">
+      <div class="row title">
+        <span class="icon-lens" aria-hidden="true"></span>
+        <ion-input
+          class="inline-input"
+          [(ngModel)]="codigo"
+          placeholder="Ingresar tu vuelo"
+          inputmode="text">
+        </ion-input>
+      </div>
 
-        <div class="division">
-          <div class="from">
-            <div class="salida">Desde</div>
-            <div class="salidaor">{{ codigoorigen }}</div>
+      <ion-button expand="block" class="cta" (click)="buscar()">BUSCAR</ion-button>
+
+
+      <div class="after" *ngIf="vuelo">
+        <div class="meta">
+          <div class="code">{{ vuelo.numero_vuelo }}</div>
+          <div class="dot">•</div>
+          <div class="date">{{ vuelo.fecha | date:'dd MMM y' }}</div>
+        </div>
+
+        <div class="times">
+          <div class="pill"><span class="lbl">Salida</span> {{ vuelo.hora_salida }}</div>
+        </div>
+
+        <div class="route">
+          <div class="airport">
+            <div class="iata">{{ vuelo.origen }}</div>
+            <div class="city">Buenos Aires</div>
           </div>
-
-          <div class="tiempos">
-            <div class="salida">Salida programada</div>
-            <div class="tiempo">{{ programado }}</div>
-
-            <div class="salida mt">Salida estimada</div>
-            <div class="tiempo">{{ estimado }}</div>
+          <div class="arrow">→</div>
+          <div class="airport">
+            <div class="iata">{{ vuelo.destino }}</div>
+            <div class="city">Miami</div>
           </div>
         </div>
-      </ion-card-content>
-    </ion-card>
+      </div>
+    </div>
 
-    <ion-button expand="block" size="large" class="boton" shape="round">
-      Ver tarjeta de embarque
-    </ion-button>
+    <!-- Error -->
+    <ion-text color="danger" *ngIf="error" class="err">{{ error }}</ion-text>
   </div>
 </ion-content>
